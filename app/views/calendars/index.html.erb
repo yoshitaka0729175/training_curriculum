@@ -12,8 +12,13 @@
     <% @week_days.each do |day| %>
       <div class='item'>
         <div class='date'>
+<<<<<<< Updated upstream
           <% day[:month] %>/<% day[:date] %>
         </div>
+=======
+          <%= day[:month] %>/<%= day[:date]%><%= day[:day]%>
+  </div>
+>>>>>>> Stashed changes
         <ul class='content'>
         <% if day[:plans].length != 0 %>
           <% day[:plans].each do |plan| %>

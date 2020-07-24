@@ -19,11 +19,23 @@ class CalendarsController < ApplicationController
   end
 
   def get_Week
+<<<<<<< Updated upstream
+=======
+
+    # require "date"
+
+>>>>>>> Stashed changes
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
+    # day = Date.today.wday
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
     @todays_date = Date.today
+<<<<<<< Updated upstream
     # 例)　今日が2月1日の場合・・・ Date.today.day => 1日
+=======
+    # 例)今日が2月1日の場合・・・ Date.today.day => 1日
+    
+>>>>>>> Stashed changes
 
     @week_days = []
 
@@ -34,7 +46,9 @@ class CalendarsController < ApplicationController
       plan = @plans.map do |plan|
         plans.push(plan.plan) if plan.date == @todays_date + x
       end
-      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: plans}
+      date = @todays_date + x
+      day= date.strftime('%w').to_i
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, day:wdays[day],plans: plans, }
       @week_days.push(days)
     end
 
